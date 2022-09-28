@@ -69,11 +69,20 @@ def play_game():
     The function plays a game of blackjack, and prints the result of the game
     :return: the string that is returned by the compare function.
     """
+    # Calling the calculate_score function on the user_cards and computers_cards lists.
     user_score = calculate_score(user_cards)
     computer_score = calculate_score(computers_cards)
+    
+   # This is printing the user's cards and the computer's first card.
     print(f"   Your cards: {user_cards}, current score: {user_score}")
     print(f"   Computer's first card: {computers_cards[0]}")
     
+    # This is the part of the code that allows the user to decide whether or not they want to get
+    # another card. If the user has a score of 0, they have a blackjack and the game ends. If the user
+    # has a score over 21, they lose and the game ends. If the user has a score between 1 and 20, they
+    # can choose to get another card or pass. If they choose to get another card, they get another
+    # card and the game continues. If they choose to pass, the computer gets cards until their score
+    # is 17 or higher.
     if user_score == 0 or computer_score == 0 or user_score > 21:
         print(compare(user_score, computer_score))
     else:
@@ -93,10 +102,14 @@ def play_game():
             computers_cards.append(deal_card())
             computer_score = calculate_score(computers_cards)
         
+     # This is printing the user's final hand and score, the computer's final hand and score, and the
+     # result of the game.
         print(f"   Your final hand: {user_cards}, final score: {user_score}")
         print(f"   Computer's final hand: {computers_cards}, final score: {computer_score}")
         print(compare(user_score, computer_score))    
         
+# This is a while loop that runs as long as the user types 'y' when asked if they want to play a game
+# of blackjack.
     
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
     play_game()
