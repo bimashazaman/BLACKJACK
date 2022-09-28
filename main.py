@@ -1,5 +1,6 @@
 import random
 
+# This is a list of the cards in the deck. The 11 represents an ace, which can be either a 1 or an 11.
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 def deal_card():
